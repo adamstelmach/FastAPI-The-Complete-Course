@@ -1,45 +1,42 @@
 {
   "name": "FastAPI Course",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+
+  "build": {
+    "dockerfile": "Dockerfile"
   },
+
+  "remoteUser": "vscode",
+
+  "postCreateCommand": "bash .devcontainer/postcreate.sh",
+
+  "containerEnv": {
+    "UV_LINK_MODE": "copy",
+    "UV_PROJECT_ENVIRONMENT": ".venv"
+  },
+
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "ms-python.vscode-pylance",
         "ms-python.debugpy",
         "charliermarsh.ruff",
-        "ms-python.black-formatter",
-        "littlefoxteam.vscode-python-test-adapter",
-        "httpyac.httpyac"
+        "ms-azuretools.vscode-docker"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "python.formatting.provider": "black",
-        "python.formatting.blackArgs": ["--line-length", "88"],
+        // Optional, but nice: point VS Code to the project venv
+        "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.terminal.activateEnvironment": true,
+
+        // Ruff: use the native server
         "[python]": {
-          "editor.defaultFormatter": "ms-python.python",
+          "editor.defaultFormatter": "charliermarsh.ruff",
           "editor.formatOnSave": true,
           "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
+            "source.fixAll.ruff": "explicit",
+            "source.organizeImports.ruff": "explicit"
           }
-        },
-        "python.linting.pylintArgs": ["--max-line-length=88"]
+        }
       }
-    }
-  },
-  "postCreateCommand": "pip install uv && uv pip install -e '.[dev]'",
-  "remoteUser": "vscode",
-  "forwardPorts": [8000],
-  "portsAttributes": {
-    "8000": {
-      "label": "FastAPI",
-      "onAutoForward": "notify"
     }
   }
 }
