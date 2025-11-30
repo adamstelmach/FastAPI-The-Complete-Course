@@ -32,18 +32,28 @@ Complete FastAPI course with modern development setup including dev container, u
 
 ### Local Setup (Without Dev Container)
 
-1. Create a virtual environment:
+1. Install `uv` using the official installer:
 
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
-2. Install dependencies with uv:
+   Then add uv to your PATH:
 
    ```bash
-   pip install uv
-   uv pip install -e '.[dev]'
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+
+2. Sync dependencies:
+
+   ```bash
+   uv sync --all-extras
+   ```
+
+3. Activate the virtual environment:
+
+   ```bash
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    ```
 
 ## Running the Application
