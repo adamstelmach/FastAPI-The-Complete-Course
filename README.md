@@ -3,6 +3,14 @@
 **Original Course:** Created by Eric Roby  
 **Forked & Enhanced by:** Adam Stelmach
 
+![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green?logo=fastapi&logoColor=white)
+![Ruff](https://img.shields.io/badge/Ruff-Linter-FF6B6B?logo=rust&logoColor=white)
+![UV](https://img.shields.io/badge/UV-Package%20Manager-FF6B6B?logo=python&logoColor=white)
+![Black](https://img.shields.io/badge/Black-Code%20Formatter-000000?logo=python&logoColor=white)
+![Pytest](https://img.shields.io/badge/Pytest-Testing-0A9EDC?logo=pytest&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Dev%20Container-2496ED?logo=docker&logoColor=white)
+
 ## Overview
 
 Complete FastAPI course with modern development setup including dev container, uv package manager, and comprehensive tooling.
